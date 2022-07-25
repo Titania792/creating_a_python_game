@@ -8,7 +8,7 @@ pygame.init()  # initializing pygame
 # creating a window of size 800x800
 window = pygame.display.set_mode((800, 800))
 # setting the title of the window
-pygame.display.set_caption("Applying text")
+pygame.display.set_caption("Time")
 # setting the background color
 bgcolor = (1, 150, 70)
 figurecolor1 = (255, 255, 255)
@@ -21,7 +21,7 @@ direction = True
 posX1, posY1 = randint(1, 800-80), randint(1, 800-80)
 posX2, posY2 = randint(1, 800-80), randint(1, 800-80)
 side = 80
-chain = "Reach the purple square!"
+chain = "Time"
 textsize = 20
 textfont = "timesnewroman"
 posX3, posY3 = 50, 50
@@ -34,6 +34,12 @@ while True:  # loop to keep the window open
     window.fill(bgcolor)  # filling the window with the background color
     # show text
     window.blit(text, (posX3, posY3))  # blitting the text
+    # time
+    tiempo = pygame.time.get_ticks() / 1000  # getting the time in seconds
+    # :.2f means 2 decimal places and rounds the number
+    chain = f"Time: {tiempo:.2f}"
+    text = fuente.render(chain, True,
+                         textcolor)  # updating the text
     square1 = pygame.draw.rect(
         window, figurecolor1, (posX1, posY1, 80, 80))  # drawing a square
     square2 = pygame.draw.rect(
@@ -41,9 +47,8 @@ while True:  # loop to keep the window open
     # detecting collision
     if square1.colliderect(square2):  # if the two squares collide
         # printing the coordinates of the collision
-        # updating the text
-        chain = f"Collision!!! square1 in {posX1}, {posY1} and square2 {posX2}, {posY2}"
-        text = fuente.render(chain, True, textcolor)  # updating the text
+        print(
+            f"Collision!!! square1 in {posX1}, {posY1} and square2 {posX2}, {posY2}")
         # resetting the coordinates of the second square
         posX2, posY2 = randint(1, 800), randint(1, 800)
         square2.left = posX2 - (side / 2)
