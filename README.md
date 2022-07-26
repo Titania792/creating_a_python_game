@@ -9,5 +9,3 @@ How to use the Pygame library for making games.
 What else can be done with Python
 Deepen your knowledge of the Python programming language.
 Advance as a developer
-#### Certificate of completion of the course:
-![https://udemy-certificate.s3.amazonaws.com/image/UC-8f2b5403-fdcc-46e2-8fae-9c4efc4b7193.jpg?v=1658793860000](Udemy Certificate)
